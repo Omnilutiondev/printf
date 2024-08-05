@@ -10,7 +10,7 @@ void print_buff(char buffer[], int *buff_indx);
 int _printf(const char *format, ...)
 {
 	int idx, prntd = 0, prntd_chars = 0;
-	int flags, width, precision, size, buff_indx = 0;
+	int flg, wdt, preci, sz, buff_indx = 0;
 	va_list list;
 	char buffer[BUFF_SIZE];
 
@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 			size = get_sz(format, &idx);
 			++idx;
 			prntd = hndl_prnt(format, &idx, list, buffer,
-				flags, width, precision, size);
+				flg, wdt, preci, sz);
 			if (prntd == -1)
 				return (-1);
 			prntd_chars += prntd;
